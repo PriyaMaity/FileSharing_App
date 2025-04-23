@@ -3,11 +3,9 @@ const { v4: uuidv4 } = require("uuid");
 const fs = require("fs");
 const path = require("node:path");
 
-const filePath = process.env.UPLOADS_DIR
-  ? process.env.UPLOADS_DIR
-  : path.join(__dirname, "uploadedFiles");
+const filePath = path.join(__dirname, "uploadedFiles");
 
-if (!process.env.UPLOADS_DIR && !fs.existsSync(filePath)) {
+if (!fs.existsSync(filePath)) {
   fs.mkdirSync(filePath, { recursive: true });
 }
 

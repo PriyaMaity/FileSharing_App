@@ -7,7 +7,7 @@ const filePath = process.env.UPLOADS_DIR
   ? process.env.UPLOADS_DIR
   : path.join(__dirname, "uploadedFiles");
 
-if (!fs.existsSync(filePath)) {
+if (!process.env.UPLOADS_DIR && !fs.existsSync(filePath)) {
   fs.mkdirSync(filePath, { recursive: true });
 }
 
